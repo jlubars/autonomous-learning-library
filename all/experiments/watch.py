@@ -84,7 +84,7 @@ class GreedyAgent(Agent):
             if filename == 'feature.pt':
                 feature = torch.load(os.path.join(dirname, filename)).to(env.device)
             if filename == 'policy.pt':
-                policy = torch.load(os.path.join(dirname, filename)).to(env.device)
+                policy = torch.load(os.path.join(dirname, filename), map_location='cpu').to(env.device)
             if filename in ('q.pt', 'q_dist.pt'):
                 q = torch.load(os.path.join(dirname, filename), map_location='cpu').to(env.device)
 
